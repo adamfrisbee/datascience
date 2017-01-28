@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "corr <- function(directory, threshold = 0) {\n  files_list <- list.files(directory, full.names=TRUE) #Reads a directory of files\n  \n  cor_vector <- vector(mode = \"numeric\", length = 0) #Creates an empty vector\n  \n  for(each in 1:332) {\n    tempdata <- read.csv(files_list[each])\n    tempdata_complete <- complete.cases(tempdata)\n    counter <- sum(tempdata_complete)\n    if(counter>threshold) {\n      cor_vector <- cor(tempdata[[\"nitrate\"]], tempdata[[\"sulfate\"]], use = \"complete.obs\")\n    }\n  }\n  \n  return(cor_vector)\n  \n}\n",
+    "contents" : "corr <- function(directory, threshold = 0) {\n  files_list <- list.files(directory, full.names=TRUE) #Reads a directory of files\n  \n  cor_vector <- vector(mode = \"numeric\", length = 0) #Creates an empty vector\n  \n  for(each in 1:length(files_list)) {\n    tempdata <- read.csv(files_list[each])\n    tempdata_complete <- complete.cases(tempdata)\n    counter <- sum(tempdata_complete)\n    if(counter>threshold) {\n      cor_vector <- c(cor_vector, cor(tempdata[[\"nitrate\"]], tempdata[[\"sulfate\"]], use = \"complete.obs\"))\n    }\n  }\n  \n  return(cor_vector)\n  \n}\n",
     "created" : 1485615793147.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "770399206",
+    "hash" : "2062386191",
     "id" : "4C240FC9",
-    "lastKnownWriteTime" : 1485625593,
-    "last_content_update" : 1485625593918,
+    "lastKnownWriteTime" : 1485632045,
+    "last_content_update" : 1485632045705,
     "path" : "~/datascience/datascience/C2W2/corr.R",
     "project_path" : "corr.R",
     "properties" : {

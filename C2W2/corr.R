@@ -3,12 +3,12 @@ corr <- function(directory, threshold = 0) {
   
   cor_vector <- vector(mode = "numeric", length = 0) #Creates an empty vector
   
-  for(each in 1:332) {
+  for(each in 1:length(files_list)) {
     tempdata <- read.csv(files_list[each])
     tempdata_complete <- complete.cases(tempdata)
     counter <- sum(tempdata_complete)
     if(counter>threshold) {
-      cor_vector <- cor(tempdata[["nitrate"]], tempdata[["sulfate"]], use = "complete.obs")
+      cor_vector <- c(cor_vector, cor(tempdata[["nitrate"]], tempdata[["sulfate"]], use = "complete.obs"))
     }
   }
   

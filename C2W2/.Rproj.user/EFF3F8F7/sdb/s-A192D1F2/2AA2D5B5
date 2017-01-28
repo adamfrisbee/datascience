@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "complete <- function(directory, id = 1:332) {\n  files_list <- list.files(directory, full.names=TRUE) #reads a directory full of files\n  \n  nobs <- numeric()\n  \n  for (each in id){    \n    data <- read.csv(files_list[each])\n    nobs <- c(nobs, sum(complete.cases(data)) )\n    \n  }\n  \ndata.frame(id, nobs)\n\n\n}",
+    "created" : 1485633162173.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1780603280",
+    "id" : "2AA2D5B5",
+    "lastKnownWriteTime" : 1485633294,
+    "last_content_update" : 1485633294821,
+    "path" : "~/datascience/datascience/C2W2/complete.R",
+    "project_path" : "complete.R",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : true,
+    "source_window" : "",
+    "type" : "r_source"
+}

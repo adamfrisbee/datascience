@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "corr <- function(directory, threshold = 0) {\n  files_list <- list.files(directory, full.names=TRUE) #reads a directory of files\n  \n  cor_vector <- vector(mode = \"numeric\", length = 0)\n  \n  for(each in 1:332) {\n    tempdata <- read.csv(files_list[each])\n    tempdata_complete <- tempdata[complete.cases(tempdata),]\n    counter <- nrow(tempdata_complete)\n      if(counter>threshold) {\n        cor_vector[each] <- cor(tempdata_complete[[\"nitrate\"]], tempdata_complete[[\"sulfate\"]])\n      }\n  }\n  \n  return(cor_vector)\n  \n}",
+    "created" : 1485572768078.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "827551156",
+    "id" : "11BDF068",
+    "lastKnownWriteTime" : 1485556511,
+    "last_content_update" : 1485556511,
+    "path" : "~/datascience/datascience/C2W2/corr.R",
+    "project_path" : "corr.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

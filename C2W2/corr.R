@@ -5,11 +5,11 @@ corr <- function(directory, threshold = 0) {
   
   for(each in 1:332) {
     tempdata <- read.csv(files_list[each])
-    tempdata_complete <- tempdata[complete.cases(tempdata),]
-    counter <- nrow(tempdata_complete)
-      if(counter>threshold) {
-        cor_vector[each] <- cor(tempdata_complete[["nitrate"]], tempdata_complete[["sulfate"]])
-      }
+    tempdata_complete <- complete.cases(tempdata)
+    counter <- sum(tempdata_complete)
+    if(counter>threshold) {
+      cor_vector <- cor(tempdata[["nitrate"]], tempdata[["sulfate"]])
+    }
   }
   
   return(cor_vector)

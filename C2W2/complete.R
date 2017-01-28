@@ -7,7 +7,6 @@ complete <- function(directory, id = 1:332) {
     data <- read.csv(files_list[each])
     nobs <- c(nobs, sum(complete.cases(data)) )
     
-    #nobs<-rbind(nobs, read.csv(files_list[each]))
   }
   
 data.frame(id, nobs)
